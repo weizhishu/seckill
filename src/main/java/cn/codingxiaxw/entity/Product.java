@@ -5,23 +5,16 @@ import java.util.Date;
 /**
  * Created by codingBoy on 16/11/24.
  */
-public class Seckill
+public class Product
 {
-    private long seckillId;
+    private long productId;
     private String name;
     private int number;
     private Date startTime;
     private Date endTime;
     private Date createTime;
 
-    public long getSeckillId() {
-        return seckillId;
-    }
-
-    public void setSeckillId(long seckillId) {
-        this.seckillId = seckillId;
-    }
-
+ 
     public String getName() {
         return name;
     }
@@ -65,7 +58,7 @@ public class Seckill
     @Override
     public String toString() {
         return "Seckill{" +
-                "seckillId=" + seckillId +
+                "productId=" + productId +
                 ", name='" + name + '\'' +
                 ", number=" + number +
                 ", startTime=" + startTime +
@@ -73,4 +66,18 @@ public class Seckill
                 ", createTime=" + createTime +
                 '}';
     }
+
+	/**
+	 * @return the productId
+	 */
+	public long getProductId() {
+		return productId;
+	}
+
+	/**
+	 * @param productId the productId to set
+	 */
+	public void setProductId(long productId) {
+		this.productId = productId;
+	}
 }

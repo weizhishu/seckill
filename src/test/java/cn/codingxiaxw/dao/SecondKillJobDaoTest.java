@@ -1,6 +1,6 @@
 package cn.codingxiaxw.dao;
 
-import cn.codingxiaxw.entity.SuccessKilled;
+import cn.codingxiaxw.entity.SecondKillJob;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -16,28 +16,29 @@ import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 //告诉junit spring的配置文件
 @ContextConfiguration({"classpath:spring/spring-dao.xml"})
-public class SuccessKilledDaoTest {
+public class SecondKillJobDaoTest {
 
     @Resource
-    private SuccessKilledDao successKilledDao;
+    private SecondKillJobDao secondKillJobDao;
 
     @Test
     public void insertSuccessKilled() throws Exception {
 
-        long seckillId=1000L;
+        long productId=1000L;
         long userPhone=13476191877L;
-        int insertCount=successKilledDao.insertSuccessKilled(seckillId,userPhone);
+        int insertCount=secondKillJobDao.insertSecondKillJob(productId,userPhone);
         System.out.println("insertCount="+insertCount);
     }
 
     @Test
     public void queryByIdWithSeckill() throws Exception {
-        long seckillId=1000L;
+        long productId=1000L;
         long userPhone=13476191877L;
-        SuccessKilled successKilled=successKilledDao.queryByIdWithSeckill(seckillId,userPhone);
-        System.out.println(successKilled);
-        System.out.println(successKilled.getSeckill());
-
+        SecondKillJob secondKillJob=secondKillJobDao.queryByIdWithProduct(productId,userPhone);
+        if(secondKillJob != null) {
+        System.out.println(secondKillJob);
+        System.out.println(secondKillJob.getProduct());
+        }
 
     }
 

@@ -1,0 +1,36 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.codingxiaxw.dao.SecondKillJobDao">
+
+    <insert id="insertSecondKillJob">
+        <!--当出现主键冲突时(即重复秒杀时)，会报错;不想让程序报错，加入ignore-->
+        INSERT ignore INTO second_kill_job(product_id,user_phone,state)
+        VALUES (#{productId},#{userPhone},0)
+    </insert>
+
+    <select id="queryByIdWithProduct" resultType="SecondKillJob">
+
+        <!--根据productId查询SecondKillJob对象，并携带Product对象-->
+        <!--如何告诉mybatis把结果映射到SuccessKill属性同时映射到Product属性-->
+        <!--可以自由控制SQL语句-->
+
+        SELECT
+            sk.product_id,
+            sk.user_phone,
+            sk.create_time,
+            sk.state,
+            s.product_id "product.product_id",
+            s.name "product.name",
+            s.number "product.number",
+            s.start_time "product.start_time",
+            s.end_time "product.end_time",
+            s.create_time "product.create_time"
+        FROM second_kill_job sk
+        INNER JOIN product s ON sk.product_id=s.product_id
+        WHERE sk.product_id=#{productId} and sk.user_phone=#{userPhone}
+    </select>
+
+
+
+</mapper>

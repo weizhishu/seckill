@@ -1,6 +1,6 @@
 package cn.codingxiaxw.dto;
 
-import cn.codingxiaxw.entity.SuccessKilled;
+import cn.codingxiaxw.entity.SecondKillJob;
 import cn.codingxiaxw.enums.SeckillStatEnum;
 
 /**
@@ -9,7 +9,7 @@ import cn.codingxiaxw.enums.SeckillStatEnum;
  */
 public class SeckillExecution {
 
-    private long seckillId;
+    private long productId;
 
     //秒杀执行结果的状态
     private int state;
@@ -18,29 +18,29 @@ public class SeckillExecution {
     private String stateInfo;
 
     //当秒杀成功时，需要传递秒杀成功的对象回去
-    private SuccessKilled successKilled;
+    private SecondKillJob secondKillJob;
 
     //秒杀成功返回所有信息
-    public SeckillExecution(long seckillId, SeckillStatEnum statEnum, SuccessKilled successKilled) {
-        this.seckillId = seckillId;
+    public SeckillExecution(long productId, SeckillStatEnum statEnum, SecondKillJob secondKillJob) {
+        this.productId = productId;
         this.state = statEnum.getState();
         this.stateInfo = statEnum.getInfo();
-        this.successKilled = successKilled;
+        this.secondKillJob = secondKillJob;
     }
 
     //秒杀失败
-    public SeckillExecution(long seckillId, SeckillStatEnum statEnum) {
-        this.seckillId = seckillId;
+    public SeckillExecution(long productId, SeckillStatEnum statEnum) {
+        this.productId = productId;
         this.state = statEnum.getState();
         this.stateInfo = statEnum.getInfo();
     }
 
     public long getSeckillId() {
-        return seckillId;
+        return productId;
     }
 
-    public void setSeckillId(long seckillId) {
-        this.seckillId = seckillId;
+    public void setSeckillId(long productId) {
+        this.productId = productId;
     }
 
     public int getState() {
@@ -59,22 +59,22 @@ public class SeckillExecution {
         this.stateInfo = stateInfo;
     }
 
-    public SuccessKilled getSuccessKilled() {
-        return successKilled;
+    public SecondKillJob getSuccessKilled() {
+        return secondKillJob;
     }
 
-    public void setSuccessKilled(SuccessKilled successKilled) {
+    public void setSuccessKilled(SecondKillJob secondKillJob) {
 
-        this.successKilled = successKilled;
+        this.secondKillJob = secondKillJob;
     }
 
     @Override
     public String toString() {
         return "SeckillExecution{" +
-                "seckillId=" + seckillId +
+                "productId=" + productId +
                 ", state=" + state +
                 ", stateInfo='" + stateInfo + '\'' +
-                ", successKilled=" + successKilled +
+                ", secondKillJob=" + secondKillJob +
                 '}';
     }
 }

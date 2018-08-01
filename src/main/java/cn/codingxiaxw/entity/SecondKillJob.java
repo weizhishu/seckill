@@ -5,22 +5,22 @@ import java.util.Date;
 /**
  * Created by codingBoy on 16/11/24.
  */
-public class SuccessKilled
+public class SecondKillJob
 {
-    private long seckillId;
+    private long productId;
     private long userPhone;
     private short state;
     private Date createTime;
 
     //多对一,因为一件商品在库存中有很多数量，对应的购买明细也有很多。
-    private Seckill seckill;
+    private Product product;
 
-    public long getSeckillId() {
-        return seckillId;
+    public long getProductId() {
+        return productId;
     }
 
-    public void setSeckillId(long seckillId) {
-        this.seckillId = seckillId;
+    public void setProductId(long productId) {
+        this.productId = productId;
     }
 
     public long getUserPhone() {
@@ -47,18 +47,18 @@ public class SuccessKilled
         this.createTime = createTime;
     }
 
-    public Seckill getSeckill() {
-        return seckill;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setSeckill(Seckill seckill) {
-        this.seckill = seckill;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     @Override
     public String toString() {
-        return "SuccessKilled{" +
-                "seckillId=" + seckillId +
+        return "SecondKillJob{" +
+                "productId=" + productId +
                 ", userPhone=" + userPhone +
                 ", state=" + state +
                 ", createTime=" + createTime +

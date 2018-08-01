@@ -502,7 +502,7 @@ SeckillDao.xml:
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.codingxiaxw.dao.SeckillDao">
+<mapper namespace="cn.codingxiaxw.dao.ProductDao">
     <!--目的:为dao接口方法提供sql语句配置
     即针对dao接口中的方法编写我们的sql语句-->
 
@@ -538,7 +538,7 @@ SuccessKilledDao.xml:
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.codingxiaxw.dao.SuccessKilledDao">
+<mapper namespace="cn.codingxiaxw.dao.SecondKillJobDao">
 
     <insert id="insertSuccessKilled">
         <!--当出现主键冲突时(即重复秒杀时)，会报错;不想让程序报错，加入ignore-->

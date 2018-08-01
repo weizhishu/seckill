@@ -1,7 +1,5 @@
 package cn.codingxiaxw.dto;
 
-import java.util.Date;
-
 /**
  * Created by codingBoy on 16/11/27.
  * 暴露秒杀地址(接口)DTO
@@ -14,7 +12,7 @@ public class Exposer {
     //加密措施
     private String md5;
 
-    private long seckillId;
+    private long productId;
 
     //系统当前时间(毫秒)
     private long now;
@@ -25,15 +23,15 @@ public class Exposer {
     //秒杀的结束时间
     private long end;
 
-    public Exposer(boolean exposed, String md5, long seckillId) {
+    public Exposer(boolean exposed, String md5, long productId) {
         this.exposed = exposed;
         this.md5 = md5;
-        this.seckillId = seckillId;
+        this.productId = productId;
     }
 
     public Exposer(boolean exposed, long seckillId,long now, long start, long end) {
         this.exposed = exposed;
-        this.seckillId=seckillId;
+        this.productId=seckillId;
         this.now = now;
         this.start = start;
         this.end = end;
@@ -41,7 +39,7 @@ public class Exposer {
 
     public Exposer(boolean exposed, long seckillId) {
         this.exposed = exposed;
-        this.seckillId = seckillId;
+        this.productId = seckillId;
     }
 
     public boolean isExposed() {
@@ -61,11 +59,11 @@ public class Exposer {
     }
 
     public long getSeckillId() {
-        return seckillId;
+        return productId;
     }
 
     public void setSeckillId(long seckillId) {
-        this.seckillId = seckillId;
+        this.productId = seckillId;
     }
 
     public long getNow() {
@@ -97,7 +95,7 @@ public class Exposer {
         return "Exposer{" +
                 "exposed=" + exposed +
                 ", md5='" + md5 + '\'' +
-                ", seckillId=" + seckillId +
+                ", productId=" + productId +
                 ", now=" + now +
                 ", start=" + start +
                 ", end=" + end +

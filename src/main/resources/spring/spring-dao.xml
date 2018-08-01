@@ -55,7 +55,7 @@
     </bean>
 
     <!--redisDao-->
-    <bean id="redisDao" class="cn.codingxiaxw.dao.cache.RedisDao">
+    <bean id="redisDao" class="cn.codingxiaxw.dao.cache.SecondKillRedisDao">
         <constructor-arg index="0" value="localhost"/>
         <constructor-arg index="1" value="6379"/>
     </bean>

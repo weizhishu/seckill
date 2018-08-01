@@ -2,7 +2,7 @@ package cn.codingxiaxw.service;
 
 import cn.codingxiaxw.dto.Exposer;
 import cn.codingxiaxw.dto.SeckillExecution;
-import cn.codingxiaxw.entity.Seckill;
+import cn.codingxiaxw.entity.Product;
 import cn.codingxiaxw.exception.RepeatKillException;
 import cn.codingxiaxw.exception.SeckillCloseException;
 import org.junit.Test;
@@ -34,7 +34,7 @@ public class SeckillServiceTest {
 
     @Test
     public void getSeckillList() throws Exception {
-        List<Seckill> seckills=seckillService.getSeckillList();
+        List<Product> seckills=seckillService.getProductList();
         System.out.println(seckills);
 
     }
@@ -43,14 +43,14 @@ public class SeckillServiceTest {
     public void getById() throws Exception {
 
         long seckillId=1000;
-        Seckill seckill=seckillService.getById(seckillId);
+        Product seckill=seckillService.getById(seckillId);
         System.out.println(seckill);
     }
 
     @Test//完整逻辑代码测试，注意可重复执行
     public void testSeckillLogic() throws Exception {
         long seckillId=1000;
-        Exposer exposer=seckillService.exportSeckillUrl(seckillId);
+        Exposer exposer=seckillService.exportProductUrl(seckillId);
         if (exposer.isExposed())
         {
 

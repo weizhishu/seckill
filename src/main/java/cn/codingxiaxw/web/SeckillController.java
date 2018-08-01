@@ -3,7 +3,7 @@ package cn.codingxiaxw.web;
 import cn.codingxiaxw.dto.Exposer;
 import cn.codingxiaxw.dto.SeckillExecution;
 import cn.codingxiaxw.dto.SeckillResult;
-import cn.codingxiaxw.entity.Seckill;
+import cn.codingxiaxw.entity.Product;
 import cn.codingxiaxw.enums.SeckillStatEnum;
 import cn.codingxiaxw.exception.RepeatKillException;
 import cn.codingxiaxw.exception.SeckillCloseException;
@@ -32,7 +32,7 @@ public class SeckillController
     {
         //list.jsp+mode=ModelAndView
         //获取列表页
-        List<Seckill> list=seckillService.getSeckillList();
+        List<Product> list=seckillService.getProductList();
         model.addAttribute("list",list);
         return "list";
     }
@@ -45,7 +45,7 @@ public class SeckillController
             return "redirect:/seckill/list";
         }
 
-        Seckill seckill=seckillService.getById(seckillId);
+        Product seckill=seckillService.getById(seckillId);
         if (seckill==null)
         {
             return "forward:/seckill/list";
@@ -65,7 +65,7 @@ public class SeckillController
     {
         SeckillResult<Exposer> result;
         try{
-            Exposer exposer=seckillService.exportSeckillUrl(seckillId);
+            Exposer exposer=seckillService.exportProductUrl(seckillId);
             result=new SeckillResult<Exposer>(true,exposer);
         }catch (Exception e)
         {
